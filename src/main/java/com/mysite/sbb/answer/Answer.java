@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import com.mysite.sbb.question.Question;
 import jakarta.persistence.*;
+import com.mysite.sbb.user.SiteUser;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -27,5 +28,9 @@ public class Answer {
     // 이렇게 @ManyToOne 애너테이션을 설정하면 Answer 엔티티의 question 속성과 Question 엔티티가 서로 연결된다.
     // (실제 데이터베이스에서는 ForeignKey 관계가 생성된다.)
     private Question question;
+
+    @ManyToOne
+    private SiteUser author;
+    private LocalDateTime modifyDate;
 
 }
