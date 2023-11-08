@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import com.mysite.sbb.question.Question;
 import jakarta.persistence.*;
 import com.mysite.sbb.user.SiteUser;
+import java.util.Set;
+import jakarta.persistence.ManyToMany;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -32,5 +34,7 @@ public class Answer {
     @ManyToOne
     private SiteUser author;
     private LocalDateTime modifyDate;
+    @ManyToMany
+    Set<SiteUser> voter;//추천기능
 
 }
